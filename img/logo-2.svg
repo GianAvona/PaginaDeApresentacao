@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="273" height="142" viewBox="0 0 273 142">
+  <g id="logo-2" transform="translate(-13 -30)">
+    <text id="G" transform="translate(13 130)" fill="#f1faee" font-size="120" font-family="Perpetua"><tspan x="0" y="0">G</tspan></text>
+    <line id="Line_3" data-name="Line 3" y2="137" transform="translate(100.5 32.5)" fill="none" stroke="#1d3557" stroke-linecap="round" stroke-width="5"/>
+    <text id="TECH" transform="translate(109 122)" fill="#f1faee" font-size="75" font-family="Perpetua"><tspan x="0" y="0">TE</tspan><tspan y="0" fill="#e63946">C</tspan><tspan y="0">H</tspan></text>
+  </g>
+</svg>

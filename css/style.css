@@ -1,0 +1,771 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2&family=Josefin+Slab:wght@200;300;400&family=Mulish:wght@200;300&display=swap');
+/*
+font-family: 'Baloo Da 2', cursive;
+font-family: 'Josefin Slab', serif;
+font-family: 'Mulish', sans-serif;
+*/
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css");
+
+/*
+#1D3557 -> azul escuro
+#457B9D -> azul céu
+#A8DADC -> azul claro
+#F1FAEE -> Gelo
+#E63946 - Vermelho
+*/
+
+/* ESTILOS GERAIS DA PÁGINA */ 
+
+html {
+	scroll-behavior: smooth;
+}
+
+.header {
+	width: 100%;
+	height: 6rem;
+	background: #1D3557;
+	z-index: 200;
+	position: fixed;
+	opacity: 0.7;
+}
+
+.logo {
+	z-index: 200;
+	left: 10%;
+	position: absolute;
+}
+
+.logo img{
+	width: 10rem;
+	padding: .4rem;
+}
+
+.hamburguer {
+	width: 2rem;
+	height: 2rem;
+	position: fixed;
+	z-index: 220;
+	right: 2rem;
+	top: 2rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	cursor: pointer;
+ 	transition: all 1s;
+}
+
+.hamburguer span {
+	position: absolute;
+	left: 3rem;
+	height: 2rem;
+	width: 6rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #000;
+	color: #FFF;
+	font-family: 'Mulish', sans-serif;
+	opacity: 0;
+	z-index: 220;
+}
+
+.hamburguer span::before {
+	content: "";
+	position: absolute;
+	border-right: .5rem solid #000;
+	border-top: .5rem solid transparent;
+	border-left: .5rem solid transparent;
+	border-bottom: .5rem solid transparent;
+	left: -1rem;
+	z-index: 220;
+}
+
+.show-menu .hamburguer:hover span {
+	opacity: 1;
+	z-index: 220;
+}
+
+
+.show-menu .hamburguer {
+	z-index: 230;
+	right: 16rem;
+}
+
+.line {
+	width: 100%;
+	background: #FFF;
+	height: .2rem;
+	box-shadow: .1rem .1rem 1px #000;
+	transition: transform 1s;
+	z-index: 230;
+}
+
+.show-menu #line1 {
+	transform: rotate(45deg) translate(.3rem, .4rem);
+	background: red;
+	z-index: 230;
+}
+
+.show-menu #line2 {
+	opacity: 0;
+	visibility: hidden;
+}
+
+.show-menu #line3 {
+	transform: rotate(-45deg) translate(.35rem, -.6rem);
+	background: red;
+	z-index: 230;
+}
+
+header {
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+	position: relative;
+}
+
+.img-wrapper {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background-color: rgba(0,0,0, 0.85);
+	animation: zoom 30s;
+}
+
+.img-wrapper img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	opacity: 0.5;
+}
+
+@keyframes zoom {
+	0% {
+		transform: scale(1.8);
+	}
+	100%{
+		transform: scale(1.0);
+	}
+}
+
+.banner {
+	position: absolute;
+	left: 10%;
+	top: 35%;
+	z-index: 10;
+}
+
+@keyframes moveBanner {
+	0% {
+		transform: translateY(100rem) rotateY(-30deg);
+	}
+	100%{		
+		transform: translateY(0) rotateY(0);
+		opacity: 1;
+	}
+}
+
+.banner h1 {
+	color: #457B9D;
+	font-size: 4.5rem;
+  font-family: 'Baloo Da 2', serif;
+  max-width: 80%;
+  line-height: 3.8rem;
+  text-shadow: .3rem .4rem 2px rgba(0, 0, 0, .4);
+  animation: moveBanner 1s 0.5s forwards;
+  opacity: 0;
+  /*background: rgba(29, 53, 87, 0.2);*/
+}
+
+.banner p {
+	color: #A8DADC;
+	font-size: 3.0rem;
+	font-weight: bold;
+	width: 50%;
+  line-height: 3.2rem;
+  font-family: 'Josefin Slab', serif;
+  letter-spacing: .1rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  text-shadow: .3rem .4rem 2px rgba(0, 0, 0, .4);
+  animation: moveBanner 1s 0.7s forwards;
+  opacity: 0;
+  /*background: rgba(29, 53, 87, 0.2);*/
+}
+
+.banner button {
+	font-family: 'Mulish', sans-serif; 
+	font-weight: bold;
+	color: #F1FAEE;
+	font-size: 1.3rem;
+	text-transform: uppercase;
+	letter-spacing: .1rem; 
+	background: #E63946;  /* fallback for old browsers */
+	/*background: -webkit-linear-gradient(to right, #A7BFE8, #6190E8);  /* Chrome 10-25, Safari 5.1-6 */
+	/*background: linear-gradient(to right, #A7BFE8, #6190E8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	padding: 1rem 3rem;
+	border: none;
+	border-radius: 15px;
+	cursor: pointer;
+	animation: moveBanner 1s 0.9s forwards;
+	opacity: 0;
+}
+
+.banner button:hover {
+	color: #E63946;
+	background: #F1FAEE;
+	font-weight: bold;
+}
+
+.sidebar {
+	width: 20rem;
+	height: 100vh;
+	background: #F1FAEE;
+	position: fixed;
+	top: 0;
+	right: -20rem;
+ 	transition: all 1s;
+	z-index: 220;
+	opacity: 0.75;
+}
+
+.show-menu .sidebar {
+ 	right: 0;
+}
+
+
+.menu {
+	position: absolute;
+	top: 40%;
+	left: 50%;
+ 	transition: all 1s;
+	transform: translate(-50%, -50%);
+}
+
+.show-menu .menu{
+	left: 10rem;
+}
+
+.menu-item {
+	text-align: center;
+	margin-bottom: .5rem;
+}
+
+.menu-link {
+	font-family: 'Mulish', sans-serif;
+	font-size: 2rem;
+	color: #000;
+	transition: color .2s;
+}
+
+.menu-link:hover {
+	color: red;
+}
+
+.social-media {
+	position: absolute;
+	bottom: 2rem;
+	width: 100%;
+	display: flex;
+	justify-content: space-evenly;
+	font-size: 2rem;
+	padding-bottom: .2em;
+	padding-top: .2em;
+}
+
+.social-media i {
+	color: #000;
+	border: .2rem solid #000;
+	transition: color 1s;
+	transition: border .5s;
+	margin: 1rem;
+}
+
+.social-media i:hover {
+	border: #E63946;
+	color: #E63946;
+}
+
+.sessao-conhecimentos {
+	background: #F1FAEE;
+}
+
+
+.conhecimentos {
+	display: grid;
+	grid-template-columns: repeat(16, 1fr);
+	grid-template-rows: (6, 6rem);
+	grid-gap: 2rem; 
+	padding-bottom: 3.5rem;
+}
+
+.sessao-header{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 3.5rem;
+	margin-bottom: 2rem;
+}
+
+.sessao-header h1 {
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: .2rem;
+	font-family: 'Baloo Da 2', cursive;
+	font-size: 2.5rem;
+	color: #1D3557;
+	border-bottom: .1rem solid #E63946;
+}
+
+.conhecimento-header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.conhecimento-header i {
+	font-size: 2.5rem;
+	padding-right: .5rem;
+	color: #457B9D;
+	padding-bottom: .5rem;	
+}
+
+.conhecimento-header h3 {
+	font-family:'Josefin Slab', serif;
+	font-size: 1.8rem;
+	color: #E63946;
+}
+
+.conhecimento-img-wrapper {
+	grid-column: 8 / 10;
+	grid-row: 2 / 5;
+	width: 100%;
+	height: auto;
+}
+
+.conhecimento-img-wrapper img {
+	object-fit: cover;
+	width: 100%;
+}
+
+.conhecimento:nth-child(1) {
+	grid-column: 3/7;
+	grid-row: 1/2;
+}
+
+
+.conhecimento:nth-child(2) {
+	grid-column: 2/6;
+	grid-row: 3/4;
+}
+
+.conhecimento:nth-child(3) {
+	grid-column: 3/7;
+	grid-row: 5/6;
+}
+
+.conhecimento:nth-child(4) {
+	grid-column: 11/15;
+	grid-row: 1/2;
+}
+
+.conhecimento:nth-child(5) {
+	grid-column: 12/16;
+	grid-row: 3/4;
+}
+
+.conhecimento:nth-child(6) {
+	grid-column: 11/15;
+	grid-row: 5/6;
+}
+
+.conhecimento-text {
+	font-family:'Josefin Slab', serif;
+	font-size: 1rem;
+	text-align: center;
+}
+
+.conhecimento-text:last-child {
+	margin-bottom: 1.5rem;	
+}
+
+.projeto .sessao-header {
+	padding-bottom: 3.5rem;
+	/*border-bottom: 1px solid #E63946;*/
+}
+
+.projeto {
+	background: #F1FAEE;
+	width: 100%;
+}
+
+/*
+.projetos {
+	display: flex;
+	justify-content: space-around;
+	width: 100%;
+	margin: 0 auto 0 auto;
+}
+
+.card {
+	width: 100%;
+	height: 25rem; 
+}
+
+.card-img-wrapper {
+	width: 80%;
+	height: 100%;
+	border-radius: 2rem;
+}
+
+.card-img-wrapper img{
+	object-fit: cover;
+	width: 80%;
+	height: 100%;
+	border-radius: 2rem; 
+	opacity: 0.6;
+}
+
+.card-info {
+	text-align: center;
+	background: #F1FAEE;
+	width: 80%;
+	padding-left: 5%;
+	padding-right: 15%;
+}
+
+.card-info h2{
+	font-family: 'Josefin Slab', serif;
+	font-size: 1.5rem;
+	font-weight: bold;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	color: #457B9D;
+}
+
+.card-info h3{
+	font-family: 'Josefin Slab', serif;
+	font-size: 1.2rem;
+	color:#E63946;
+	padding-bottom: 0.5rem;
+}
+
+.card-info p {
+	font-family: 'Josefin Slab', serif
+	font-size: 1rem;
+	color: #457B9D;
+}
+
+.card-info button {
+	border-radius: 1rem;
+	background: #1D3557;
+	color: #E63946;
+	padding: .2rem 1rem .2rem 1rem;
+}
+*/
+
+.projetos {
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 4rem;
+}
+
+.card {
+  width: 18rem;
+  height: 25rem;
+  position: relative;		/*relative por que o texto é absolute para vir por cima */
+}
+
+.card-img-wrapper {
+  width: 100%;
+  height: 100%;
+  background-color: #262626;
+  border-radius: 0.5rem;
+}
+
+.card-img-wrapper img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.card:hover .card-img-wrapper img {
+  opacity: 0.2;
+}
+
+.card-info {
+  position: absolute;
+  bottom: 0;
+  opacity: 0;
+  visibility: hidden;
+  padding: 2rem;
+  text-shadow: 0.3rem 0.2rem 0.3rem rgba(0, 0, 0, 0.6);
+  transition: all 0.3s;
+}
+
+.card-info h2 {
+  font-family: 'Baloo Da 2', cursive;
+  font-size: 2rem;
+  font-weight: 500;
+  color: #eee;
+}
+
+.card-info h3 {
+  font-family: 'Mulish', sans-serif;
+  font-weight: bolder;
+  color: #ff4081;
+  margin-bottom: 1.5rem;
+}
+
+.card-info p {
+  font-family: 'Josefin Slab', serif;
+  color: #eee;
+  font-weight: 400;
+  line-height: 1rem;
+  width: 80%;
+  margin-bottom: 2rem;
+}
+
+.card-info button {
+  width: 8rem;
+  height: 2.5rem;
+  letter-spacing: .1rem; 
+	background: #E63946;
+ /* background: -webkit-linear-gradient(to right, #a044ff, #6a3093);
+  background: linear-gradient(to left, #a044ff, #6a3093);*/
+  font-family: 'Mulish', sans-serif;
+  color: #eee;
+  border-radius: 0.5rem;
+  border: none;
+  box-shadow: 0 0.1rem 0.8rem rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+.card:hover .card-info {
+  bottom: 2rem;
+  opacity: 1;
+  visibility: visible;
+}
+
+.contato {
+	background: #F1FAEE;
+	padding-bottom: 10rem;
+}
+
+.sessao-contato {
+	background: #F1FAEE; 
+	width: 100%;
+	height: 50vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.contato-wrapper {
+	background: white;
+	width: 60%;
+	height: 30vh;
+	display: flex;
+	box-shadow: 0 2rem 3rem rgba(0,0,0, 0.5);
+	padding: 1.5rem;
+}
+
+.contato-left {
+	width: 35%;
+	background: linear-gradient(rgba(15, 15, 15, 0.4), rgba(22,22,22,0.9)),
+							url(../img/contato.jpg);
+	background-size: cover; 
+}
+
+.contato-right{
+	width: 65%;
+	padding-left: 7rem;
+}
+
+.sessao-form {
+	display: flex;
+	flex-direction: column;
+	align-items: left;
+	width: 60%;
+}
+
+.field{
+	border: none;
+	width: 95%;
+	font-size: 1.3rem;
+	font-family: 'Josefin Slab', serif;
+	border-bottom: .1rem dashed #457B9D;
+	line-height: 2rem;
+}
+
+.field-label{
+	width: 95%;
+	border: none;
+	font-size: 1.2rem;
+	font-weight: bold;
+	font-family: 'Josefin Slab', serif;
+	padding-top: .5rem;
+	padding-top: 1.5rem;	
+}
+
+.contato-right textarea {
+	max-width: 95%;
+	max-height: 5rem;
+}
+
+.sessao-form button {
+	width: 75%;
+	padding: .5rem;
+	text-transform: uppercase;
+	font-size: 1rem;
+	background: #457B9D;
+	color: #FFF;
+	border: none;
+	border-radius: 1rem;
+	margin: 0 auto;
+	margin-top: 1.2rem;
+	transition: 0.5s;
+	font-family: 'Mulish', sans-serif;
+	letter-spacing: .1rem; 
+	cursor: pointer;
+}
+
+.sessao-form button:hover {
+	background: #E63946;
+	color: #F1FAEE;
+}
+
+.sessao-orcamento {
+	width: 100%;
+	height: 90vh;
+	background: url(../img/orcamento.jpg) ;
+	object-fit: cover;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 8rem;
+}
+
+.orcamento-wrapper {
+	width: 70%;
+	height: 60%;;
+	background-color: #ffffff99;
+	border-radius: 2rem;
+	box-shadow: 0 0.1rem 0.3rem rgba(0,0,0, 0.8);
+	position: relative;
+}
+
+.sessao-orcamento h1 {
+	position: absolute;
+	top: -2.5rem;
+	left: 2rem;
+	border-radius: 1rem;
+	font-weight: lighter;
+}
+
+.orcamento-header {
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: .2rem;
+	font-family: 'Baloo Da 2', cursive;
+	font-size: 2.5rem;
+	color: #F1FAEE;
+	background-color: #457B9D;
+	padding: 0 2rem;
+	border-radius: 1rem;
+	box-shadow: 0 0.1rem 0.3rem rgba(0,0,0, 0.5 );
+}
+
+.sessao-orcamento form {
+	margin: 4rem;
+	display: grid;
+	grid-template-columns: auto 1fr;
+	column-gap: 2rem;
+	row-gap: 3rem;
+}
+
+.sessao-orcamento label {
+	font-family: 'Josefin Slab', serif;
+	font-size: 1.3rem;
+	font-weight: bold;
+	line-height: 1.7rem;
+}
+
+.soli-orcamento {
+	grid-column: 2;
+	width: 50%;
+	padding: .75rem;
+	text-transform: uppercase;
+	font-size: 1rem;
+	background: #457B9D;
+	color: #FFF;
+	border: none;
+	border-radius: 1rem;
+	margin: 0 auto;
+	margin-top: 1.2rem;
+	transition: 0.5s;
+	font-family: 'Mulish', sans-serif;
+	letter-spacing: .1rem; 
+	cursor: pointer;
+}
+
+.sessao-orcamento input[type="number"] {
+	font-family: 'Josefin Slab', serif;
+	width: 10rem;
+	font-size: 2rem;
+	outline:none;
+	border-radius: 1rem;
+	border: 1px dashed #457B9D;
+	padding: .3rem;
+	text-align: center;
+}
+
+footer {
+	width: 100%;
+	height: 7rem;
+	background-color: #000;
+	display: flex;
+	align-items: center;
+	justify-content: center; 
+}
+
+.footer-content {
+	width: 60%;
+	display: flex;
+	justify-content: space-around;
+}
+
+.footer-content p {
+	font-family: 'Josefin Slab', serif;
+	color: #fff;
+	font-size: 1.2rem;
+}
+
+.social-list a{
+	margin: 0 2rem;
+	color: #fff;
+	font-size: 1.2rem;
+}
+
+.social-list ul {
+	display: flex;
+}
+
+#link-topo {
+	position: fixed;
+	right: 3rem;
+	bottom: 3rem;
+	width: 2rem;
+	height: 2rem;
+	background: #1D3557;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: .3rem;
+	box-shadow: 0 0.1rem 0.6rem;
+}
